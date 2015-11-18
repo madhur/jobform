@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="jobFormApp">
+<head>
+    <meta charset="utf-8">
+    <title>
+        Popups
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <link href="css/ionic.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rzslider.css">
+</head>
+<body ng-cloak ng-controller="jobFormController">
+
+
+<div class="note">
+    <p>Please provide the following information and we'll get you the best of jobs available</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col">
+        <p class="field-name">EDUCATION</p>
+    </div>
+    <div class="col">
+        <p class="field-name loc-name">PREFERRED LOCATION</p>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col fields-row">
+        <div class="item item-select job-select">
+            <select ng-model="data.degree">
+                <option class="select-option"
+                        ng-repeat="degree in jobDegrees"
+                        value="{{degree.id}}" >
+                    {{degree.title}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="col fields-row">
+        <label class="item item-input job-select loc-input">
+            <input type="text" ng-model="data.location" name="location" value=""/>
+
+            </label>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col">
+        <p class="field-name">JOB CATEGORY</p>
+
+        <div class="item item-select job-select-category">
+            <select ng-model="data.category">
+                <option class="select-option"
+                        ng-repeat="category in jobCategories"
+                        value="{{category.id}}">
+                    {{category.title}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col">
+        <p class="field-name">EXPERIENCE (in years)</p>
+
+        <div class="item range range-item">
+                <rzslider  rz-slider-model="data.experience" rz-slider-floor="0"   rz-slider-text=" years" rz-slider-min-lable="<1 year" rz-slider-max-lable="10+ years" rz-exp-silder-id="expSlider" rz-slider-ceil="11" ></rzslider>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col">
+        <p class="field-name">EXPECTED SALARY (in lakhs per annum)</p>
+
+        <div class="item range range-item">
+                <rzslider rz-slider-model="data.ctc" rz-slider-floor="0" rz-slider-text=" lakhs" rz-slider-min-lable="<1 lakh" rz-slider-max-lable="15+ lakhs" rz-exp-silder-id="ctcSlider" rz-slider-ceil="16"></rzslider>
+				
+        </div>
+    </div>
+</div>
+<div class="row button-row">
+    <div class="col"></div>
+    <div class="col">
+        <button class="button button-clear button-stable" ng-click="cancelForm()">
+            CANCEL
+        </button>
+        <button class="button button-clear button-positive" ng-click="submitForm('Hello Android')">
+            SUBMIT
+        </button>
+    </div>
+</div>
+<script src="lib/ionic.js"></script>
+<script src="lib/angucomplete-alt.js"></script>
+<script src="lib/angular-cache.min.js"></script>
+<script src="lib/rzslider.js"></script>
+<script src="js/app.js?v=3.0"></script>
+
+
+
+
+</body>
+</html>
